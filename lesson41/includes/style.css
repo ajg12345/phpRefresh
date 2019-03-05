@@ -1,6 +1,12 @@
-p {
-	text-align: center;
-	font-size: 120px;
-	font-family: Arial;
-	margin-top: 38vh;
-}
+
+div.box {
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center }
+div.box p {
+  margin: 0 }
+.error {
+  color: red; }  
+.success {
+  color: green; }  
