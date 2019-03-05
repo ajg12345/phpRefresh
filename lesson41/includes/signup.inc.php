@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
 			header("Location: ../index.php?signup=name_char_error");
 			exit();
 		}else {
-			if (!filter_var($email, !FILTER_VALIDATE_EMAIL)) {	//there are a lot of error handlers to consider here, and these are just a few.
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {	//there are a lot of error handlers to consider here, and these are just a few.
 				header("Location: ../index.php?signup=invalid_email&first=$first&last=$last&uid=$uid");
 				exit();
 			} else {
