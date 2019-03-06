@@ -48,6 +48,9 @@
 					} elseif ($signupCheck=='invalid_email') {
 						echo "<p class='error'>You used an invalid e-mail!</p>";
 						exit();
+					} elseif ($signupCheck=='passwordcheck') {
+						echo "<p class='error'>Your Passwords did not agree!</p>";
+						exit();	
 					} elseif ($signupCheck=='success') {
 						echo "<p class='success'>You have been signed up!</p>";
 						exit();

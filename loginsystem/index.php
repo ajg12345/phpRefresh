@@ -1,14 +1,24 @@
 <?php
 	include_once 'header.php'
 ?>
-<section class="main-container">
+<main>
 	<div class="main-wrapper">
-		<h2>Home</h2>
+		<section class="main-container">		
+		<?php
+			if (isset($_SESSION['useruid']))  {
+				$uid = $_SESSION['useruid'];
+				echo '<p class="login-status">Welcome '.$uid.'</p>';
+			} else {
+				echo '<p class="login-status">You are logged out!</p>';
+			}
+		?>
+			
+		</section>
 	</div>
-</section>
+</main>
 
 <?php
-	include_once 'header.php'
+	include_once 'footer.php'
 ?>
 
 
