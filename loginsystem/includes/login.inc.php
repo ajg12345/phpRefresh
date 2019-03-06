@@ -33,10 +33,7 @@
 						
 						header("Location: ../index.php");
 						exit();
-						
 						//original video https://www.youtube.com/watch?v=xb8aad4MRx8&list=PL0eyrZgxdwhwBToawjm9faF1ixePexft-&index=44
-						//newer video (1:35) https://www.youtube.com/watch?v=LC9GaXkdxF8
-						//I'd better go back to make sureI covered all of the style basis etc.
 					} else {
 						header("Location: ../index.php?error=wrongPwd");
 						exit();

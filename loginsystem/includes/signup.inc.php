@@ -10,11 +10,11 @@
 		$pwd2 = mysqli_real_escape_string($conn, $_POST['pwd2']);		
 	
 		if (empty($first) || empty($last) || empty($email)|| empty($uid)|| empty($pwd) || empty($pwd2)) {
-			header("Location: ../index.php?signup=empty&first=".$first."&last=".$last."&uid=".$uid);		//by including a signup=empty we are creating a get method for signup in the index page
+			header("Location: ../signup.php?signup=empty&first=".$first."&last=".$last."&uid=".$uid);		//by including a signup=empty we are creating a get method for signup in the index page
 			exit();
 		} else {
 			if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
-				header("Location: ../index.php?signup=name_char_error&uid=".$uid);
+				header("Location: ../signup.php?signup=name_char_error&uid=".$uid);
 				exit();
 			} else {
 				if (!filter_var($email, 

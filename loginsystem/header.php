@@ -21,18 +21,21 @@ session_start();
 				<li><a href="index.php">About</a></li>
 			</ul>
 			<div class="nav-login">
-				<form action="includes/login.inc.php" method="POST">
-					<input type="text" name="uid" placeholder="username/e-mail">
-					<input type="password" name="pwd" placeholder="password">
 					<?php
 						if (isset($_SESSION['useruid']))  {
 							$uid = $_SESSION['useruid'];
-							echo '<button type="submit" name="logout-submit">LOGOUT</BUTTON>';
+							echo '	<form action="includes/logout.inc.php" method="POST">
+									<button type="submit" name="logout-submit">LOGOUT</BUTTON>
+									</form>';
 						} else {
-							echo '<button type="submit" name="login-submit">LOGIN</BUTTON>';
+							
+							echo '<form action="includes/login.inc.php" method="POST">
+									<input type="text" name="uid" placeholder="username/e-mail">
+									<input type="password" name="pwd" placeholder="password">
+									<button type="submit" name="login-submit">LOGIN</BUTTON>
+								  </FORM>';
 						}
 					?>
-				</FORM>
 				<a href="signup.php">Sign Up</a>
 			</div>
 		</div>				
