@@ -8,25 +8,26 @@
 <head>
 <meta charset="UTF-8">
 <title>photo login system</title>
-
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <?php
-	$sql = "SELECT * FROM users";
+	$sql = "SELECT * FROM users;";
 	$result = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($result) > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			$id = $row['id'];
-			$sqlImage = "SELECT * FROM profileimg where id=".$id.";";
+			$sqlImage = "SELECT * FROM profileimg where user_id=".$id.";";
 			$resultImage = mysqli_query($conn, $sqlImage);
-			while ($rowImg = mysqli_fetch_assoc($resultImg)) {	//now we can spit out the stuff inside the browser
-				echo "<div>";
-					if ($rowImg['status'] == 0) {
-						echo "<img src='uploads/profile".$id.".jpg>";
+			while ($rowImg = mysqli_fetch_assoc($resultImage)) {	//now we can spit out the stuff inside the browser
+				echo "<div class='user-container'>";
+					if ($rowImg['status'] == 1) {
+						echo "<img src='uploads/profile".$id.".jpg?'".mt_rand().">";	//adding some random number so that the browser knows this is a new image, so refresh
 					} else {
-						echo "<img src='uploads/profiledefault.jpg>";
+						echo "<img src='uploads/profiledefault.jpg'>";
 					}
+					echo "<p>".$row['user_uid']."</p>";
 				echo "</div>";
 				
 			}
