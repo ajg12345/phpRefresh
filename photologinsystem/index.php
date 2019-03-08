@@ -23,7 +23,11 @@
 			while ($rowImg = mysqli_fetch_assoc($resultImage)) {	//now we can spit out the stuff inside the browser
 				echo "<div class='user-container'>";
 					if ($rowImg['status'] == 1) {
-						echo "<img src='uploads/profile".$id.".jpg?'".mt_rand().">";	//adding some random number so that the browser knows this is a new image, so refresh
+						$filename = "uploads/profile".$id."*";
+						$fileinfo = glob($filename);	//might get multiple results like profile1, profile11 etc.
+						$fileext = explode(".", $fileinfo[0]); 
+						$fileactualext = $fileext[1];
+						echo "<img src='uploads/profile".$id.".jpg?".mt_rand()."'>";	//adding some random number so that the browser knows this is a new image, so refresh
 					} else {
 						echo "<img src='uploads/profiledefault.jpg'>";
 					}
@@ -42,9 +46,12 @@
 			echo "You are logged in as user #1";
 		}
 		echo '<form action="upload.php" method="POST" enctype="multipart/form-data">	
-				<input type="file" name="file">
+				<input type="file" name="file" >
 				<button type="submit" name="submit">UPLOAD</button>
 				</form>';
+		echo '<form action="deleteprofile.php" method="POST">	
+				<button type="submit" name="submit">Delete profile image</button>
+			  </form>';
 	} else {
 		echo "You are not logged in!";
 		echo "<form action='signup.php' method='POST'> 

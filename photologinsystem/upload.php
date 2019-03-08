@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 	if (in_array($fileActualExt, $allowed)){
 		if ($fileError === 0){
 			if ($fileSize < 10000000){
-				$fileNameNew = "profile".$id.".".$fileActualExt;	//creates a unique number based on microseconds and without extra periods.
+				$fileNameNew = "profile".$id.".".$fileActualExt;	
 				$fileDestination = 'upload/'.$fileNameNew;
 				move_uploaded_file($fileTmpName, $fileDestination);
 				$sql = "UPDATE profileimg SET STATUS=1 WHERE USER_ID = '$id';";
