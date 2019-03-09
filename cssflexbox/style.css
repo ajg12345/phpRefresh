@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 100%;
+	height: 500px;
+	background-color: #ccc;
+
+	display: flex;	/*makes the container into a flex box, that items will re-arrange a certain way*/
+	flex-wrap: wrap; /*float does this by default, will wrap text */
+	flex-direction: row; /*move from left to right with items*/
+	/*the above two lines are equal to "flex-flow: row wrap;"*/
+	justify-content: space-between; /*this has some great options*/
+	align-items: flex-start; /*the default one */
+	align-content: center;
+	/* so the justify content aligns horizontally and
+	the align content aligns things vertically*/
+}
+.item {
+	background-color: red;
+	flex-basis: 30%;
+}
+.item2{
+	background-color: green;
+	flex: 0 1 100px;	/*takes up extra space aroudn it by factor*/
+	/*order: 2;POWERFULLY, it can move objects around the page*/ 
+}
