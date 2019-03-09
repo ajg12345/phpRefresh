@@ -11,7 +11,8 @@
 	grid-template-areas: 
 	"title title"
 	"header header"
-	"sidebar content"
+	"sidebar sidebar"
+	"content content"
 	"footer footer";
 	grid-gap: 10px;
 }
@@ -38,21 +39,22 @@
 	background-color: green;
 	/*order: 2;POWERFULLY, it can move objects around the page*/ 
 }
-@media screen and (max-width: 736px)
+@media screen and (min-width: 736px)
 {
 	/*so if the screen is ever smaller than 736, this is used*/
-	
-	.grid {
-		display: grid;	/*makes the container into a grid, that items will re-arrange a certain way*/
-		grid-template-columns: 1fr 1fr;
-		/*this grid template columns thing can be customized great!*/	
-		grid-template-rows:  1fr 1fr 1fr 1fr;
-		grid-template-areas: 
-		"title title"
-		"header header"
-		"sidebar sidebar"
-		"content content"
-		"footer footer";
-		grid-gap: 10px;
-	}
+	/*also its important to use mobile as default
+	so that if the thing doesn't work it defaults to mobile on both platforms
+	which is easier to read*/
+.grid {
+	display: grid;	/*makes the container into a grid, that items will re-arrange a certain way*/
+	grid-template-columns: 1fr 1fr;
+	/*this grid template columns thing can be customized great!*/	
+	grid-template-rows:  1fr 1fr 1fr 1fr;
+	grid-template-areas: 
+	"title title"
+	"header header"
+	"sidebar content"
+	"footer footer";
+	grid-gap: 10px;
+}
 }
